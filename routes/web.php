@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AuthController;
+//use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Auth\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +18,10 @@ Route::get('/', function () {
     return view('admin/index');
 });
 
-Route::get('/createCustomer',[AuthController::class,'createCustomer']);
+Route::get('/login', function () {
+    return view('auth/signin');
+});
+
+Route::post('/login_user',[AuthController::class,'loginUser']);
+
+//Route::get('/createCustomer',[AuthController::class,'createCustomer']);
