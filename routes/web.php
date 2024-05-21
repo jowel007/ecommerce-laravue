@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Auth\AuthController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +26,8 @@ Route::get('/login', function () {
 Route::post('/login_user',[AuthController::class,'loginUser']);
 
 //Route::get('/createCustomer',[AuthController::class,'createCustomer']);
+
+Route::get('/logout', function () {
+   Auth::logout();
+   return redirect('login');
+});
